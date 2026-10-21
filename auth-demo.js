@@ -5,7 +5,10 @@
 
 	if (!status) return;
 
-	status.textContent = 'Demo mode: accounts are saved only in this browser.';
+	const registrationComplete = new URLSearchParams(window.location.search).get('registered') === '1';
+	status.textContent = registrationComplete
+		? 'Your account was created. Sign in to continue. Demo mode only.'
+		: 'Demo mode: accounts are saved only in this browser.';
 
 	function readAccounts() {
 		const savedAccounts = localStorage.getItem(accountsKey);
@@ -78,8 +81,7 @@
 
 				accounts.push(account);
 				localStorage.setItem(accountsKey, JSON.stringify(accounts));
-				signupForm.reset();
-				status.textContent = 'Account created in this browser. You can now sign in. Demo mode only.';
+				window.location.replace(new URL('login.html?registered=1', window.location.href).href);
 			} catch (error) {
 				status.textContent = error.message || 'Could not save the local demo account in this browser.';
 			} finally {
@@ -115,7 +117,7 @@
 				}
 
 				sessionStorage.setItem(sessionKey, JSON.stringify({ email: account.email, name: account.name }));
-				window.location.assign('dashboard.html');
+				window.location.replace(new URL('dashboard.html', window.location.href).href);
 			} catch (error) {
 				status.textContent = error.message || 'Could not check the local demo account.';
 			} finally {
