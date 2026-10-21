@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f5f8f7">
+	<title>Sign in | ATU Attendance</title>
+	<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+	<header class="auth-topbar">
+		<nav class="auth-nav" aria-label="Main navigation">
+			<a class="auth-brand" href="index.html" aria-label="ATU Attendance home">
+				<span class="auth-brand-mark" aria-hidden="true">ATU</span>
+				<span>ATTENDANCE</span>
+			</a>
+			<a class="auth-nav-link" href="signup.html">Create account</a>
+		</nav>
+	</header>
+	<main class="auth-layout">
+		<aside class="auth-visual auth-visual-left" aria-hidden="true">
+			<div class="chart-plot"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+		</aside>
+		<section class="auth-form-side" aria-labelledby="login-title">
+			<h1 id="login-title">Sign in to your account</h1>
+			<p class="auth-intro">Pick up where you left off and keep your classes on track.</p>
+			<form class="auth-form" id="login-form">
+				<div class="auth-field">
+					<label for="email">School email</label>
+					<input id="email" name="email" type="email" autocomplete="username" placeholder="you@school.edu" required>
+				</div>
+				<div class="auth-field">
+					<label for="password">Password</label>
+					<input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+				</div>
+				<button class="auth-submit" type="submit">Sign in</button>
+			</form>
+			<p class="auth-status" id="form-status" role="status" aria-live="polite"></p>
+			<p class="auth-switch">New to ATU Attendance? <a href="signup.html">Create an account</a></p>
+		</section>
+		<aside class="auth-visual auth-visual-right" aria-hidden="true">
+			<div class="chart-plot"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+		</aside>
+	</main>
+	<script src="auth-demo.js"></script>
+</body>
+</html>

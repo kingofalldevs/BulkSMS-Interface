@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f5f8f7">
+	<title>Create account | ATU Attendance</title>
+	<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+	<header class="auth-topbar">
+		<nav class="auth-nav" aria-label="Main navigation">
+			<a class="auth-brand" href="index.html" aria-label="ATU Attendance home">
+				<span class="auth-brand-mark" aria-hidden="true">ATU</span>
+				<span>ATTENDANCE</span>
+			</a>
+			<a class="auth-nav-link" href="login.html">Sign in</a>
+		</nav>
+	</header>
+	<main class="auth-layout">
+		<aside class="auth-visual auth-visual-left" aria-hidden="true">
+			<div class="chart-plot"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+		</aside>
+		<section class="auth-form-side" aria-labelledby="signup-title">
+			<h1 id="signup-title">Create your account</h1>
+			<p class="auth-intro">Set up your account to organize classes and manage student attendance.</p>
+			<form class="auth-form" id="signup-form">
+				<div class="auth-field">
+					<label for="full-name">Full name</label>
+					<input id="full-name" name="fullName" type="text" autocomplete="name" placeholder="Your name" required>
+				</div>
+				<div class="auth-field">
+					<label for="email">School email</label>
+					<input id="email" name="email" type="email" autocomplete="email" placeholder="you@school.edu" required>
+				</div>
+				<div class="auth-field">
+					<label for="password">Password</label>
+					<input id="password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+				</div>
+				<div class="auth-field">
+					<label for="confirm-password">Confirm password</label>
+					<input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Re-enter your password" required>
+				</div>
+				<button class="auth-submit" type="submit">Create account</button>
+			</form>
+			<p class="auth-status" id="form-status" role="status" aria-live="polite"></p>
+			<p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+		</section>
+		<aside class="auth-visual auth-visual-right" aria-hidden="true">
+			<div class="chart-plot"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+		</aside>
+	</main>
+	<script src="auth-demo.js"></script>
+</body>
+</html>
