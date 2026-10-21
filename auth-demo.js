@@ -115,7 +115,7 @@
 				}
 
 				sessionStorage.setItem(sessionKey, JSON.stringify({ email: account.email, name: account.name }));
-				status.textContent = `Signed in locally as ${account.name}. Demo mode only.`;
+				window.location.assign('dashboard.html');
 			} catch (error) {
 				status.textContent = error.message || 'Could not check the local demo account.';
 			} finally {

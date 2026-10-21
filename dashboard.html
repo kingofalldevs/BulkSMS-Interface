@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f5f8f7">
+	<title>Dashboard | ATU Attendance</title>
+	<link rel="stylesheet" href="dashboard.css">
+	<script src="dashboard.js" defer></script>
+</head>
+<body>
+	<header class="app-header">
+		<div class="app-header-inner">
+			<a class="app-brand" href="dashboard.html" aria-label="ATU Attendance dashboard">
+				<span class="app-brand-mark" aria-hidden="true">ATU</span>
+				<span>ATTENDANCE</span>
+			</a>
+			<button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="dashboard-links">
+				<span></span><span></span><span></span>
+			</button>
+			<nav class="dashboard-nav" id="dashboard-links" aria-label="Dashboard navigation">
+				<a href="#overview" aria-current="page">Overview</a>
+				<a href="#students">Students</a>
+				<a href="#classes">Classes</a>
+				<a href="#reports">Reports</a>
+			</nav>
+			<div class="user-controls">
+				<span class="user-name" id="user-name">Account</span>
+				<button class="sign-out" id="sign-out" type="button">Sign out</button>
+			</div>
+		</div>
+	</header>
+
+	<main class="dashboard-main" id="overview">
+		<section class="page-intro" aria-labelledby="welcome-title">
+			<div>
+				<p class="eyebrow">Attendance overview</p>
+				<h1 id="welcome-title">Welcome back</h1>
+				<p class="intro-copy">Here is what is happening across your classes today.</p>
+			</div>
+			<div class="intro-meta">
+				<time id="today-date"></time>
+				<span class="demo-badge">Demo data</span>
+			</div>
+		</section>
+
+		<section class="metric-grid" aria-label="Attendance summary">
+			<article class="metric metric-students">
+				<p>Total students</p>
+				<strong>248</strong>
+				<span>Across all classes</span>
+			</article>
+			<article class="metric metric-present">
+				<p>Present today</p>
+				<strong id="present-count" data-total="248">216</strong>
+				<span>Attendance recorded</span>
+			</article>
+			<article class="metric metric-rate">
+				<p>Attendance rate</p>
+				<strong id="attendance-rate">87%</strong>
+				<span>Across today’s classes</span>
+			</article>
+			<article class="metric metric-classes">
+				<p>Classes today</p>
+				<strong>12</strong>
+				<span>4 need a check-in</span>
+			</article>
+		</section>
+
+		<div class="dashboard-grid">
+			<section class="panel weekly-panel" id="reports" aria-labelledby="weekly-title">
+				<div class="panel-heading">
+					<div>
+						<p class="eyebrow">This week</p>
+						<h2 id="weekly-title">Attendance trend</h2>
+					</div>
+					<span class="trend-indicator">+3.2% <span>vs. last week</span></span>
+				</div>
+				<div class="weekly-chart" role="img" aria-label="Weekly attendance rates: Monday 82 percent, Tuesday 86 percent, Wednesday 84 percent, Thursday 91 percent, Friday 88 percent, Saturday 92 percent, Sunday 87 percent">
+					<div class="day-column"><span class="day-value">82%</span><span class="day-bar" style="--bar-height: 72%; --bar-color: #438eb0"></span><span class="day-label">Mon</span></div>
+					<div class="day-column"><span class="day-value">86%</span><span class="day-bar" style="--bar-height: 80%; --bar-color: #087e78"></span><span class="day-label">Tue</span></div>
+					<div class="day-column"><span class="day-value">84%</span><span class="day-bar" style="--bar-height: 76%; --bar-color: #d8745f"></span><span class="day-label">Wed</span></div>
+					<div class="day-column"><span class="day-value">91%</span><span class="day-bar" style="--bar-height: 90%; --bar-color: #e2b94b"></span><span class="day-label">Thu</span></div>
+					<div class="day-column"><span class="day-value">88%</span><span class="day-bar" style="--bar-height: 84%; --bar-color: #a7658b"></span><span class="day-label">Fri</span></div>
+					<div class="day-column"><span class="day-value">92%</span><span class="day-bar" style="--bar-height: 94%; --bar-color: #df8a4a"></span><span class="day-label">Sat</span></div>
+					<div class="day-column"><span class="day-value">87%</span><span class="day-bar" style="--bar-height: 82%; --bar-color: #689d70"></span><span class="day-label">Sun</span></div>
+				</div>
+			</section>
+
+			<section class="panel classes-panel" id="classes" aria-labelledby="classes-title">
+				<div class="panel-heading">
+					<div>
+						<p class="eyebrow">Today</p>
+						<h2 id="classes-title">Class attendance</h2>
+					</div>
+					<a class="panel-link" href="#students">Review students</a>
+				</div>
+				<div class="table-scroll">
+					<table>
+						<thead>
+							<tr><th scope="col">Class</th><th scope="col">Present</th><th scope="col">Rate</th><th scope="col">Status</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">CS 101</th><td>29 / 32</td><td>91%</td><td><span class="status status-recorded">Recorded</span></td></tr>
+							<tr><th scope="row">Biology 2</th><td>28 / 30</td><td>93%</td><td><span class="status status-recorded">Recorded</span></td></tr>
+							<tr><th scope="row">MATH 203</th><td>24 / 30</td><td>80%</td><td><span class="status status-pending">Review</span></td></tr>
+							<tr><th scope="row">ENG 110</th><td>31 / 34</td><td>91%</td><td><span class="status status-recorded">Recorded</span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+
+		<section class="panel students-panel" id="students" aria-labelledby="students-title">
+			<div class="panel-heading">
+				<div>
+					<p class="eyebrow">Needs follow-up</p>
+					<h2 id="students-title">Students to check</h2>
+				</div>
+				<span class="student-count">3 students</span>
+			</div>
+			<div class="table-scroll">
+				<table>
+					<thead>
+						<tr><th scope="col">Student</th><th scope="col">Class</th><th scope="col">Attendance</th><th scope="col">Action</th></tr>
+					</thead>
+					<tbody id="student-rows">
+						<tr data-student="Amma Owusu">
+							<th scope="row">Amma Owusu</th><td>CS 101</td><td><span class="status status-absent">Absent</span></td>
+							<td><button class="table-action" type="button" data-mark-present>Mark present</button></td>
+						</tr>
+						<tr data-student="Noah Chen">
+							<th scope="row">Noah Chen</th><td>MATH 203</td><td><span class="status status-late">Late</span></td>
+							<td><button class="table-action" type="button" data-mark-present>Mark present</button></td>
+						</tr>
+						<tr data-student="Ava Williams">
+							<th scope="row">Ava Williams</th><td>ENG 110</td><td><span class="status status-absent">Absent</span></td>
+							<td><button class="table-action" type="button" data-mark-present>Mark present</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<p class="demo-note" role="note">Sample attendance figures are for demonstration only.</p>
+	</main>
+	<p class="interaction-status" id="interaction-status" role="status" aria-live="polite"></p>
+</body>
+</html>
